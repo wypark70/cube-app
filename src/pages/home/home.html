@@ -1,0 +1,23 @@
+<div class="controll-div">
+	<div class="icon-div">
+		<ion-icon name="play" (click)="start()"></ion-icon>
+		<ion-icon name="refresh-circle" (click)="reset()"></ion-icon>
+		<ion-icon name="ios-cube-outline" (click)="changeBackground(1)"></ion-icon>
+		<ion-icon name="md-cube" (click)="changeBackground(0)"></ion-icon>
+		<ion-icon name="qr-scanner" (click)="addRotation(0)"></ion-icon>
+		<ion-icon name="qr-scanner" (click)="addRotation(1)"></ion-icon>
+		<ion-icon name="qr-scanner" (click)="addRotation(2)"></ion-icon>
+		<ion-icon name="md-rewind" (click)="toogleIsHistoryBack()"></ion-icon>
+	</div>
+	<div class="log-div">rCnt: {{groupRoatations.length}}, hCnt: {{historys.length}}, hb: {{isHistoryBack}}</div>
+	<div class="log-div">{{totalResult|json}}</div>
+</div>
+<ion-fab right bottom>
+	<button ion-fab mini><ion-icon name="arrow-dropup"></ion-icon></button>
+	<ion-fab-list side="top">
+		<button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+		<button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+		<button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+		<button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+	</ion-fab-list>
+</ion-fab>

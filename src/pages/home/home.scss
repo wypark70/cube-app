@@ -1,0 +1,46 @@
+page-home {
+	margin: 0px;
+	padding: 0px;
+}
+
+.action-sheets-basic-page {
+	opacity: 0.5;
+	.ion-md-share {
+		color: #ED4248;
+		opacity: 0.5;
+	}
+	.ion-md-arrow-dropright-circle {
+		color: #508AE4;
+		opacity: 0.5;
+	}
+	.ion-md-heart-outline {
+		color: #31D55F;
+		opacity: 0.5;
+	}
+	.action-sheet-cancel ion-icon,
+	.action-sheet-destructive ion-icon {
+		color: #757575;
+		opacity: 0.5;
+	}
+}
+
+.controll-div {
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	opacity: 0.5;
+	padding: 15px 0px 0px 0px;
+	background-color: black;
+	.icon-div {
+		color: greenyellow;
+		text-align: center;
+		font-size: 35px;
+	}
+	.log-div {
+		color: greenyellow;
+		padding-left: 10px;
+		text-align: center;
+		font-size: 18px;
+	}
+}
