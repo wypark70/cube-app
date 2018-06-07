@@ -7,6 +7,7 @@
     > git clone https://github.com/wypark70/cube-app.git
 
 ## Install node module
+    > npm install -g ionic cordova
     > npm install
 
 ## Run Server
