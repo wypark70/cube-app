@@ -91,10 +91,10 @@ export class HomePage {
 
 		rottoNums = getRottoBolls(7);
 
-		console.log('');
-		console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-		console.log(JSON.stringify(rottoNums));
-		console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+		// console.log('');
+		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+		// console.log(JSON.stringify(rottoNums));
+		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 		let sumResult = {
 			'sumCost': 0,
 			'sumWinnings': 0,
@@ -109,14 +109,14 @@ export class HomePage {
 				'lank': lank === 0 ? '꽝' : lank + '등',
 				'numbers': buyRotto
 			}
-			console.log(JSON.stringify(result));
+			// console.log(JSON.stringify(result));
 			sumResult.sumCost += 1000;
 			sumResult.sumWinnings += winnings[lank];
 			sumResult.sumMath += cnt;
 		});
-		console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-		console.log(JSON.stringify(sumResult));
-		console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+		// console.log(JSON.stringify(sumResult));
+		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 
 		this.totalResult.totalCost += sumResult.sumCost;
 		this.totalResult.totalWinnings += sumResult.sumWinnings;
@@ -192,7 +192,6 @@ export class HomePage {
 		this.orbitControls.update();
 
 		this.geometry = new THREE.CubeGeometry(this.size, this.size, this.size);
-		/*
 		this.materials = [
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/imgs/image01.jpg'), transparent: true, opacity: 0.8, color: 0xFFFFFF }),
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/imgs/image02.jpg'), transparent: true, opacity: 0.8, color: 0xFFFFFF }),
@@ -201,7 +200,7 @@ export class HomePage {
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/imgs/image05.jpg'), transparent: true, opacity: 0.8, color: 0xFFFFFF }),
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/imgs/image06.jpg'), transparent: true, opacity: 0.8, color: 0xFFFFFF })
 		];
-		*/
+		/*
 		this.materials = [
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/textures/cube/skybox/px.jpg'), transparent: true, opacity: 0.75, color: 0xFFFFFF }),
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/textures/cube/skybox/nx.jpg'), transparent: true, opacity: 0.75, color: 0xFFFFFF }),
@@ -210,6 +209,7 @@ export class HomePage {
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/textures/cube/skybox/pz.jpg'), transparent: true, opacity: 0.75, color: 0xFFFFFF }),
 			new THREE.MeshBasicMaterial({ map: THREE.ImageUtils.loadTexture('assets/textures/cube/skybox/nz.jpg'), transparent: true, opacity: 0.75, color: 0xFFFFFF })
 		];
+		*/
 
 		let baseMesh = new THREE.Mesh(this.geometry, new THREE.MultiMaterial(this.materials));
 		baseMesh.translateX(this.size / 2);
@@ -277,7 +277,7 @@ export class HomePage {
 		});
 	}
 
-	changeBackground(idx) {
+	changeBackground(idx: any) {
 		this.scene.background = this.backgroundCube[idx];
 	}
 
