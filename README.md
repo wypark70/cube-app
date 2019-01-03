@@ -7,7 +7,7 @@
     > git clone https://github.com/wypark70/cube-app.git
 
 ## Install node module
-    > npm install --global --production windows-build-tools
+    > npm install --global --production windows-build-tools (관리자 권한으로 실행)
     > npm install -g ionic cordova
     > npm install
 
