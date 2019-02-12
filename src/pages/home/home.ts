@@ -104,12 +104,14 @@ export class HomePage {
 		buyRottos.forEach(function (buyRotto) {
 			let cnt = getCnt(rottoNums, buyRotto);
 			let lank = getLank(cnt, rottoNums[rottoNums.length - 1], buyRotto);
+			/*
 			let result = {
 				'matCnt': cnt,
 				'lank': lank === 0 ? '꽝' : lank + '등',
 				'numbers': buyRotto
 			}
-			// console.log(JSON.stringify(result));
+			console.log(JSON.stringify(result));
+			*/
 			sumResult.sumCost += 1000;
 			sumResult.sumWinnings += winnings[lank];
 			sumResult.sumMath += cnt;
