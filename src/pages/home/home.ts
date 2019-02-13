@@ -175,7 +175,6 @@ export class HomePage {
 			'totalMath': 0
 		};
 
-
 		this.backgroundCube.push(new THREE.CubeTextureLoader()
 			.setPath('assets/textures/cube/Bridge2/')
 			.load(['posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg']));
