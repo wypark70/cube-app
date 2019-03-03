@@ -130,11 +130,9 @@ export class HomePage {
 		this.totalResult.totalCost += sumResult.sumCost;
 		this.totalResult.totalWinnings += sumResult.sumWinnings;
 		this.totalResult.totalMath += sumResult.sumMath;
-
 		this.totalResult.totalCostLocaleString = Number(this.totalResult.totalCost).toLocaleString();
 		this.totalResult.totalWinningsLocaleString = Number(this.totalResult.totalWinnings).toLocaleString();
 		this.totalResult.totalMathLocaleString = Number(this.totalResult.totalMath).toLocaleString();
-
 
 		function getCnt(rottoNums, buyRotto): number {
 			let cnt = 0;
