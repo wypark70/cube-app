@@ -41,6 +41,14 @@ export class HomePage {
 		this.speeds = new Array<Array<number>>();
 		this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
 		this.scene = new THREE.Scene();
+		this.totalResult = {
+			'totalCost': 0,
+			'totalWinnings': 0,
+			'totalMath': 0,
+			'totalCostLocaleString': '0',
+			'totalWinningsLocaleString': '0',
+			'totalMathLocaleString': '0'
+		};
 	}
 
 	@HostListener('window:resize', ['$event']) onResize(event) {
@@ -91,10 +99,6 @@ export class HomePage {
 
 		rottoNums = getRottoBolls(7);
 
-		// console.log('');
-		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-		// console.log(JSON.stringify(rottoNums));
-		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 		let sumResult = {
 			'sumCost': 0,
 			'sumWinnings': 0,
@@ -104,23 +108,33 @@ export class HomePage {
 		buyRottos.forEach(function (buyRotto) {
 			let cnt = getCnt(rottoNums, buyRotto);
 			let lank = getLank(cnt, rottoNums[rottoNums.length - 1], buyRotto);
-			let result = {
-				'matCnt': cnt,
-				'lank': lank === 0 ? '꽝' : lank + '등',
-				'numbers': buyRotto
-			}
-			// console.log(JSON.stringify(result));
 			sumResult.sumCost += 1000;
 			sumResult.sumWinnings += winnings[lank];
 			sumResult.sumMath += cnt;
+			if (lank > 0 && lank < 5) {
+				printResult(cnt, lank, buyRotto);
+			}
 		});
-		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-		// console.log(JSON.stringify(sumResult));
-		// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+		function printResult(cnt, lank, buyRotto) {
+			console.log('');
+			console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+			console.log(JSON.stringify(rottoNums));
+			console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+			console.log(JSON.stringify({ 'matCnt': cnt, 'lank': lank === 0 ? '꽝' : lank + '등', 'numbers': buyRotto }));
+			console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+			console.log(JSON.stringify(sumResult));
+			console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+		}
 
 		this.totalResult.totalCost += sumResult.sumCost;
 		this.totalResult.totalWinnings += sumResult.sumWinnings;
 		this.totalResult.totalMath += sumResult.sumMath;
+
+		this.totalResult.totalCostLocaleString = Number(this.totalResult.totalCost).toLocaleString();
+		this.totalResult.totalWinningsLocaleString = Number(this.totalResult.totalWinnings).toLocaleString();
+		this.totalResult.totalMathLocaleString = Number(this.totalResult.totalMath).toLocaleString();
+
 
 		function getCnt(rottoNums, buyRotto): number {
 			let cnt = 0;
@@ -170,9 +184,11 @@ export class HomePage {
 		this.totalResult = {
 			'totalCost': 0,
 			'totalWinnings': 0,
-			'totalMath': 0
+			'totalMath': 0,
+			'totalCostLocaleString': '0',
+			'totalWinningsLocaleString': '0',
+			'totalMathLocaleString': '0'
 		};
-
 
 		this.backgroundCube.push(new THREE.CubeTextureLoader()
 			.setPath('assets/textures/cube/Bridge2/')
@@ -259,13 +275,15 @@ export class HomePage {
 	}
 
 	reset() {
-		console.clear();
 		this.groupRoatations.length = 0;
 		this.historys.length = 0;
 		this.totalResult = {
 			'totalCost': 0,
 			'totalWinnings': 0,
-			'totalMath': 0
+			'totalMath': 0,
+			'totalCostLocaleString': '0',
+			'totalWinningsLocaleString': '0',
+			'totalMathLocaleString': '0'
 		};
 		this.speeds.forEach((speed, idx) => {
 			this.speeds[idx] = new Array<number>();
@@ -372,5 +390,4 @@ export class HomePage {
 		this.renderer.render(this.scene, this.camera);
 		requestAnimationFrame(() => this.animate(isEnableAddHistory));
 	}
-
 }

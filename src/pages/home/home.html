@@ -10,7 +10,7 @@
 		<ion-icon name="md-rewind" (click)="toogleIsHistoryBack()"></ion-icon>
 	</div>
 	<div class="log-div">rCnt: {{groupRoatations.length}}, hCnt: {{historys.length}}, hb: {{isHistoryBack}}</div>
-	<div class="log-div">{{totalResult|json}}</div>
+	<div class="log-div">cost: {{totalResult.totalCostLocaleString}}, win: {{totalResult.totalWinningsLocaleString}}, match: {{totalResult.totalMathLocaleString}}</div>
 </div>
 <ion-fab right bottom>
 	<button ion-fab mini><ion-icon name="arrow-dropup"></ion-icon></button>
